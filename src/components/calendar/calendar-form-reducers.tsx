@@ -75,7 +75,7 @@ export function validateForm(values: Fields) {
     errors.time = 'Time field is required';
   }
   if (!values.invitees) {
-    errors.invitees = 'Guests field is required';
+    errors.invitees = 'Invitees field is required';
   } else if (!validateEmailList(values.invitees)) {
     errors.invitees =
       'Enter unique & valid email addresses separated by commas';

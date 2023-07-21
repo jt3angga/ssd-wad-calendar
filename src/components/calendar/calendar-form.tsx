@@ -36,6 +36,8 @@ export function CalendarForm({
   const dateString = formatISO8601(date);
   const dispatch = useAppDispatch();
 
+  const options = generateTimeOptions();
+
   const [stateForm, dispatchStateForm] = useReducer(eventFormReducer, {
     ...initialEventFormState,
     values: {
@@ -114,14 +116,14 @@ export function CalendarForm({
     <div className="mt-7 flex flex-col gap-y-3">
       <FormField
         ref={focusRef}
-        label="Title"
+        label="Name"
         value={stateForm.values.name}
         error={stateForm.errors.name}
         onChange={(e) => {
           e.preventDefault();
           onChange({ name: 'name', value: e.target.value });
         }}
-        placeholder="Event title"
+        placeholder="Event Name"
       />
       <FormField
         label="Time"
@@ -132,15 +134,15 @@ export function CalendarForm({
               onChange({ name: 'time', value });
             }}
             value={stateForm.values.time}
-            options={generateTimeOptions()}
+            options={options}
           />
         )}
       />
       <FormField
-        label="Guests"
+        label="Invitees"
         value={stateForm.values.invitees}
         error={stateForm.errors.invitees}
-        placeholder="Guess email (Separate by comma)"
+        placeholder="Invitees email (Separate by comma)"
         onChange={(e) => {
           e.preventDefault();
           onChange({ name: 'invitees', value: e.target.value });

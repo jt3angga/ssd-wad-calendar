@@ -35,10 +35,10 @@ export function CalendarEventView({
 
   return (
     <div className="mt-7 flex flex-col gap-y-3">
-      <ListView label="Title" value={event?.name ?? ''} />
+      <ListView label="Name" value={event?.name ?? ''} />
       <ListView label="Time" value={event?.time ?? ''} />
       <ListView
-        label="Guests"
+        label="Invitees"
         renderChild={() => (
           <div>
             {convertEmailListToArray(event?.invitees ?? '').map(

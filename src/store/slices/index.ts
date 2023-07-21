@@ -1,6 +1,5 @@
 export {
   addEvent,
-  clearEvent,
   deleteEvent,
   editEvent,
   eventsSelector,

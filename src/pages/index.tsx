@@ -1,14 +1,9 @@
-import { Calendar } from '@/components';
+import { Calendar, Layout } from '@/components';
 import { monthString, year } from '@/utils';
-import Head from 'next/head';
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>SSD Calendar</title>
-        <meta name="description" content="Assessment test SSD" />
-      </Head>
+    <Layout>
       <div className="container relative mx-auto p-4">
         <h1 className="font-bold text-xl md:text-3xl text-center">
           PT Sukses Solusindo Digital
@@ -20,6 +15,6 @@ export default function Home() {
           <Calendar />
         </div>
       </div>
-    </>
+    </Layout>
   );
 }

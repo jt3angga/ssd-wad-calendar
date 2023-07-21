@@ -43,6 +43,8 @@ export function CalendarModal({
     }
   }
 
+  const isPastDate = (date ?? new Date()).getDate() < currentDate.getDate();
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
@@ -84,6 +86,11 @@ export function CalendarModal({
                     : event
                     ? `Edit Event ${dateString}`
                     : `Add Event to ${dateString}`}
+                  {isPastDate && !isViewMode && !event ? (
+                    <div className="text-red-500 italic text-xs">
+                      *You are adding event on a past date
+                    </div>
+                  ) : null}
                 </Dialog.Title>
                 <button className="absolute right-8 top-5" onClick={onClose}>
                   <XMarkIcon className="w-7 h-7" />

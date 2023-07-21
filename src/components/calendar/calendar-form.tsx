@@ -134,6 +134,7 @@ export function CalendarForm({
               onChange({ name: 'time', value });
             }}
             value={stateForm.values.time}
+            error={stateForm.errors.time}
             options={options}
           />
         )}

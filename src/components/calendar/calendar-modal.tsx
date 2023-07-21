@@ -79,7 +79,7 @@ export function CalendarModal({
               <Dialog.Panel className="relative w-full max-w-xl transform rounded-2xl bg-white py-6 px-10 text-left align-middle shadow-xl transition-all">
                 <Dialog.Title
                   as="h2"
-                  className="text-lg font-medium leading-6 text-gray-900 mb-3"
+                  className="text-base md:text-lg font-medium leading-6 text-gray-900 mb-3"
                 >
                   {isViewMode
                     ? `View Event ${dateString}`

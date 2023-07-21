@@ -1,5 +1,5 @@
 import { Event } from '@/store';
-import { getCurrentRoundTime, validateEmailList } from '@/utils';
+import { validateEmailList } from '@/utils';
 
 export interface Fields extends Omit<Event, 'color' | 'id'> {}
 
@@ -29,7 +29,7 @@ export type Payload =
 export const initialEventFormState: State = {
   values: {
     name: '',
-    time: getCurrentRoundTime(),
+    time: '',
     invitees: '',
   },
   errors: {

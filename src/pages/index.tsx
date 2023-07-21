@@ -10,11 +10,11 @@ export default function Home() {
         <meta name="description" content="Assessment test SSD" />
       </Head>
       <div className="container relative mx-auto p-4">
-        <h1 className="font-bold text-3xl text-center">
+        <h1 className="font-bold text-xl md:text-3xl text-center">
           PT Sukses Solusindo Digital
         </h1>
-        <div className="font-bold text-3xl text-center mt-1">
-          Calendar {`${monthString} ${year}`}
+        <div className="font-bold text-xl md:text-3xl text-center mt-1">
+          {`${monthString} ${year}`}
         </div>
         <div className="mt-2">
           <Calendar />

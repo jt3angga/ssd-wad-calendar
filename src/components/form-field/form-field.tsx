@@ -24,7 +24,7 @@ const FormFieldComponent = (
             <input
               ref={ref}
               className={clsxm(
-                'flex-1 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:ring-1 outline-none block w-full p-2',
+                'flex-1 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:ring-1 outline-none block w-full p-2 placeholder-gray-400',
                 {
                   'border-red-500': error && error !== '',
                 }
@@ -37,7 +37,12 @@ const FormFieldComponent = (
         )}
       </div>
       {error && error !== '' ? (
-        <p className="text-red-500 italic text-right text-xs">{error}</p>
+        <div className="flex items-start md:items-center flex-col md:flex-row">
+          <div className="mr-5 w-14 " />
+          <div className="flex flex-1 flex-col w-full">
+            <p className="text-red-500 italic text-xs">{error}</p>
+          </div>
+        </div>
       ) : null}
     </div>
   );

@@ -23,6 +23,7 @@ export type CalendarFormProps = {
   date?: Date;
   event?: Event;
   focusRef?: Ref<HTMLInputElement>;
+  usedColors?: string[];
 };
 
 export function CalendarForm({
@@ -32,6 +33,7 @@ export function CalendarForm({
   onClose,
   changeViewMode,
   focusRef,
+  usedColors,
 }: CalendarFormProps) {
   const dateString = formatISO8601(date);
   const dispatch = useAppDispatch();
@@ -65,11 +67,12 @@ export function CalendarForm({
         .map((email: string) => email.trim())
         .join(', ');
       if (!event) {
+        const color = getRandomColor(usedColors || []);
         dispatch(
           addEvent({
             date: dateString,
             event: {
-              color: getRandomColor(),
+              color: color,
               id: generateRandomId(),
               name: stateForm.values.name,
               time: stateForm.values.time,

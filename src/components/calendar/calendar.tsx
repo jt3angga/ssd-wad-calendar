@@ -1,5 +1,5 @@
 import { Event, eventsSelector, useAppSelector } from '@/store';
-import { currentDate, getDaysInMonth } from '@/utils';
+import { currentDate, formatISO8601, getDaysInMonth } from '@/utils';
 import { useState } from 'react';
 import {
   CalendarDay,
@@ -18,16 +18,21 @@ export function Calendar() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date>();
   const [selectedEvent, setSelectedEvent] = useState<Event>();
+  const [usedColors, setUsedColors] = useState<string[]>([]);
 
   function onClose() {
     setIsOpen(false);
     setSelectedDate(undefined);
     setSelectedEvent(undefined);
+    setUsedColors([]);
   }
 
   function handleClick(date: Date) {
     setIsOpen(true);
     setSelectedDate(date);
+    const dateString = formatISO8601(date);
+    const colors = events[dateString]?.events.map((e) => e.color) || [];
+    setUsedColors(colors);
   }
 
   function handleClickEvent(date: Date, event: Event) {
@@ -66,6 +71,7 @@ export function Calendar() {
           onClose={onClose}
           date={selectedDate}
           event={selectedEvent}
+          usedColors={usedColors}
         />
       ) : null}
     </>

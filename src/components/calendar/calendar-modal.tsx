@@ -11,6 +11,7 @@ export type CalendarModalProps = {
   onClose: () => void;
   date?: Date;
   event?: Event;
+  usedColors?: string[];
 };
 
 export function CalendarModal({
@@ -18,6 +19,7 @@ export function CalendarModal({
   onClose,
   date,
   event,
+  usedColors,
 }: CalendarModalProps) {
   const focusRef = useRef<HTMLInputElement | null>(null);
   const [currentEvent, setCurrentEvent] = useState<Event | undefined>(event);
@@ -103,6 +105,7 @@ export function CalendarModal({
                     setCurrentEvent={setCurrentEvent}
                     changeViewMode={changeViewMode}
                     onClose={handleClose}
+                    usedColors={usedColors}
                   />
                 ) : (
                   <CalendarEventView

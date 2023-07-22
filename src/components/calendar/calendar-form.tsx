@@ -146,7 +146,7 @@ export function CalendarForm({
         label="Invitees"
         value={stateForm.values.invitees}
         error={stateForm.errors.invitees}
-        placeholder="Invitees email (Separate by comma)"
+        placeholder="Invitees email (separate by comma for multiple email)"
         onChange={(e) => {
           e.preventDefault();
           onChange({ name: 'invitees', value: e.target.value });

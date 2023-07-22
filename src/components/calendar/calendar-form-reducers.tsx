@@ -78,7 +78,7 @@ export function validateForm(values: Fields) {
     errors.invitees = 'Invitees field is required';
   } else if (!validateEmailList(values.invitees)) {
     errors.invitees =
-      'Enter unique & valid email addresses separated by commas';
+      'Enter unique & valid email addresses and separated by commas';
   }
   return errors;
 }
